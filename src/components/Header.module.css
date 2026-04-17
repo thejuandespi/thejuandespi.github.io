@@ -1,0 +1,32 @@
+.header {
+  padding: 2rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.navLinks a {
+  font-size: 1rem;
+  font-weight: 400;
+  transition: opacity 0.2s;
+}
+
+.navLinks a:hover {
+  opacity: 0.6;
+}
