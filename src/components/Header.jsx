@@ -102,10 +102,7 @@ const Header = () => {
             <div className=" bg-slate-600 p-4 rounded-2xl hover:bg-slate-500 hover:text-red-500">Four</div>
             <div className=" bg-slate-600 p-4 rounded-2xl hover:bg-slate-500 hover:text-red-500">Five</div>
         </div>
-
-
     </div>
-
   );
 };
 
