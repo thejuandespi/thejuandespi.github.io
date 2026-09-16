@@ -23,7 +23,7 @@ function Moon() {
 
 const HAZARD_COUNT = 60;
 
-export default function Nav({ active, theme, onTheme }) {
+export default function Nav({ active, theme, onTheme, onOpenPalette }) {
   const [open, setOpen] = useState(false);
   const pct = useScrollProgress();
 
@@ -75,6 +75,14 @@ export default function Nav({ active, theme, onTheme }) {
                 </svg>
               </a>
             </span>
+            <button
+              type="button"
+              className="icon-btn icon-btn-wide mono hidden sm:inline-flex"
+              onClick={onOpenPalette}
+              aria-label="Open command palette"
+            >
+              &gt;_ <kbd className="mono">&#8984;K</kbd>
+            </button>
             <button
               className="icon-btn"
               onClick={onTheme}

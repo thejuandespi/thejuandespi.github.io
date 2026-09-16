@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Backdrop from "./components/Backdrop";
+import Cursor from "./components/Cursor";
 import Nav from "./components/Nav";
 import Dock from "./components/Dock";
 import Rail from "./components/Rail";
@@ -9,6 +11,7 @@ import Certifications from "./components/Certifications";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import CommandPalette from "./components/CommandPalette";
 import { SECTIONS } from "./data/content";
 import { useTheme } from "./hooks/useTheme";
 import { useActiveSection } from "./hooks/useActiveSection";
@@ -18,14 +21,16 @@ const IDS = SECTIONS.map((s) => s.id);
 export default function App() {
   const [theme, toggleTheme] = useTheme();
   const active = useActiveSection(IDS);
+  const [paletteOpen, setPaletteOpen] = useState(false);
 
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
       <Backdrop />
+      <Cursor />
       <Dock active={active} />
       <Rail />
-      <Nav active={active} theme={theme} onTheme={toggleTheme} />
+      <Nav active={active} theme={theme} onTheme={toggleTheme} onOpenPalette={() => setPaletteOpen(true)} />
       <main id="main">
         <Hero />
         <About />
@@ -35,6 +40,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <CommandPalette theme={theme} onTheme={toggleTheme} open={paletteOpen} onOpenChange={setPaletteOpen} />
     </>
   );
 }
