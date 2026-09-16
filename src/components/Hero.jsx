@@ -1,11 +1,54 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HUD, MARQUEE, ME } from "../data/content";
 import { scrollToId } from "../lib/scroll";
 
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&/\\<>_-";
+
+/** Resolves `target` out of random glyphs, left to right, like a boot-time
+    decrypt. Skips straight to the final text under reduced motion. */
+function useScrambleReveal(target, { delay = 150, stepMs = 40, steps = 16 } = {}) {
+  const [text, setText] = useState(target);
+  const frame = useRef(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    setText(target.replace(/[^\s]/g, SCRAMBLE_CHARS[0]));
+    frame.current = 0;
+    let intervalId;
+
+    const startTimeout = setTimeout(() => {
+      intervalId = setInterval(() => {
+        frame.current += 1;
+        const revealCount = Math.ceil((frame.current / steps) * target.length);
+        let out = "";
+        for (let i = 0; i < target.length; i++) {
+          if (target[i] === " ") { out += " "; continue; }
+          out += i < revealCount
+            ? target[i]
+            : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        }
+        setText(out);
+        if (frame.current >= steps) clearInterval(intervalId);
+      }, stepMs);
+    }, delay);
+
+    return () => {
+      clearTimeout(startTimeout);
+      clearInterval(intervalId);
+    };
+  }, [target, delay, stepMs, steps]);
+
+  return text;
+}
+
 /** JOHN and DESPI stack as one wordmark, each name said exactly once.
     A small ident tag above (not a repeat of the name) and a signal-green
-    rule below frame it, with one clean chromatic echo on hover. */
+    rule below frame it. The name decrypts out of random glyphs on boot,
+    then keeps its periodic chromatic-glitch loop once resolved. */
 function NameBlock() {
+  const displayText = useScrambleReveal("John Despi");
+
   return (
     <h1 className="hero-name">
       <span className="sr-only">John Despi</span>
@@ -15,7 +58,7 @@ function NameBlock() {
         </span> */}
       </span>
       <span className="clip d1">
-        <span className="name-word" data-text="John Despi" aria-hidden="true">John Despi</span>
+        <span className="name-word" data-text="John Despi" aria-hidden="true">{displayText}</span>
       </span>
       {/* <span className="clip d2">
         <span className="name-word" data-text="Despi" aria-hidden="true">Despi</span>
