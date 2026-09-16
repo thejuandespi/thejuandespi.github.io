@@ -55,7 +55,6 @@ export const TIMELINE = [
 export const CLUSTERS = [
   {
     title: "Salesforce platform",
-    glyph: "platform",
     note: "Where most of my hours go.",
     items: [
       ["Apex", 1], ["Lightning Web Components", 1], ["Flows", 1], ["SOQL / SOSL", 1],
@@ -66,7 +65,6 @@ export const CLUSTERS = [
   },
   {
     title: "Release & tooling",
-    glyph: "tooling",
     note: "Getting it to production without drama.",
     items: [
       ["Salesforce CLI / SFDX", 1], ["Copado", 1], ["GitHub pipelines", 1], ["Git", 0],
@@ -76,7 +74,6 @@ export const CLUSTERS = [
   },
   {
     title: "Web stack",
-    glyph: "webstack",
     note: "From the two years before Salesforce, still useful daily.",
     items: [
       ["JavaScript", 1], ["HTML5", 0], ["CSS / SCSS", 0], ["SLDS", 0],
