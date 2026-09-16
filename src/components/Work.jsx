@@ -9,6 +9,7 @@ export default function Work() {
           code="03"
           id="work-t"
           title="Selected work"
+          glyph="work"
           note="Six builds that show the range — managed packages, integrations, portals, and one pre-Salesforce web app."
         />
 

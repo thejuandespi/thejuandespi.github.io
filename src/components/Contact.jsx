@@ -18,6 +18,7 @@ export default function Contact() {
           code="04"
           id="contact-t"
           title="Get in touch"
+          glyph="contact"
           note="Senior Salesforce roles, contract builds, or a platform problem you're stuck on. Email is fastest — I reply within a day."
         />
 

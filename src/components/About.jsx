@@ -9,6 +9,7 @@ export default function About() {
           code="01"
           id="about-t"
           title="About"
+          glyph="about"
           note="Eight years in, still most interested in the gap between what a stakeholder asks for and what they actually need."
         />
 

@@ -1,4 +1,5 @@
 import SectionHead from "./SectionHead";
+import Glyph from "./Glyphs";
 import { CLUSTERS } from "../data/content";
 
 export default function Skills() {
@@ -9,6 +10,7 @@ export default function Skills() {
           code="02"
           id="skills-t"
           title="Skills"
+          glyph="skills"
           note="Highlighted tags are what I reach for first; the rest I've shipped with and can pick straight back up."
         />
 
@@ -20,7 +22,10 @@ export default function Skills() {
             }`}
           >
             <h3 className="text-base font-bold" style={{ fontStretch: "86%" }}>
-              {c.title}
+              <span className="inline-flex items-center gap-2">
+                <Glyph name={c.glyph} size={19} className="text-accent shrink-0" />
+                {c.title}
+              </span>
               <span className="block text-muted font-normal text-[0.84rem] mt-1" style={{ fontStretch: "100%" }}>
                 {c.note}
               </span>

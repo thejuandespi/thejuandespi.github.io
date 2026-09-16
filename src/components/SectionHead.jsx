@@ -1,6 +1,9 @@
-export default function SectionHead({ code, title, id, note }) {
+import Glyph from "./Glyphs";
+
+export default function SectionHead({ code, title, id, note, glyph }) {
   return (
-    <div className="flex flex-wrap items-start gap-5 mb-10">
+    <div className="flex flex-wrap items-start gap-4 mb-10">
+      {glyph ? <Glyph name={glyph} size={30} className="text-accent shrink-0 mt-0.5" /> : null}
       <span className="sec-code mono pt-2 min-w-12">
         <i aria-hidden="true" />{code}
       </span>

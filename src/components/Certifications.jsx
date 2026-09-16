@@ -1,3 +1,4 @@
+import Glyph from "./Glyphs";
 import { CERTS } from "../data/content";
 
 /** Deliberately has no nav entry — it's a feature block inside the page
@@ -9,7 +10,9 @@ export default function Certifications() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)] lg:gap-16 items-start">
           {/* left: the headline number */}
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
-            <span className="mono text-accent block mb-3">Credentials</span>
+            <span className="mono text-accent inline-flex items-center gap-2 mb-3">
+              <Glyph name="seal" size={19} />Credentials
+            </span>
             <div className="flex items-end gap-4">
               <b
                 className="block text-[clamp(5rem,16vw,9rem)] font-black leading-[0.78] text-ink"
