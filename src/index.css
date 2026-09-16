@@ -448,12 +448,17 @@
   content: ""; position: absolute; left: 0.85rem; right: 0.85rem; bottom: 0.1rem;
   height: 2px; background: var(--c-signal);
 }
-.icon-btn {
-  width: 38px; height: 38px; display: grid; place-items: center; cursor: pointer;
-  background: transparent; border: 1px solid var(--c-line); color: var(--c-ink);
-  transition: border-color 0.16s ease, background 0.16s ease;
+/* Layered so Tailwind's utility classes (hidden, lg:hidden, …) can still
+   override display on these — unlayered CSS would otherwise always win
+   over the utilities layer regardless of breakpoint. */
+@layer components {
+  .icon-btn {
+    width: 38px; height: 38px; display: grid; place-items: center; cursor: pointer;
+    background: transparent; border: 1px solid var(--c-line); color: var(--c-ink);
+    transition: border-color 0.16s ease, background 0.16s ease;
+  }
+  .icon-btn:hover { border-color: var(--c-line2); background: var(--c-panel); }
 }
-.icon-btn:hover { border-color: var(--c-line2); background: var(--c-panel); }
 
 /* Scroll-progress fill in the nav, as discrete hazard-tape slashes that pop
    in one at a time. Each segment is its own shape, so none of them are ever
@@ -588,10 +593,12 @@ html.custom-cursor, html.custom-cursor * { cursor: none !important; }
 /* ============================================================
    COMMAND PALETTE
    ============================================================ */
-.icon-btn-wide {
-  width: auto; height: 38px; display: inline-flex; align-items: center; justify-content: center;
-  padding-inline: 0.7rem; gap: 0.4rem; font-size: 0.66rem;
-  letter-spacing: 0.1em; text-transform: uppercase;
+@layer components {
+  .icon-btn-wide {
+    width: auto; height: 38px; display: inline-flex; align-items: center; justify-content: center;
+    padding-inline: 0.7rem; gap: 0.4rem; font-size: 0.66rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
 }
 .icon-btn-wide kbd {
   font-family: inherit; font-size: 0.9em; opacity: 0.6; border: 1px solid var(--c-line);
