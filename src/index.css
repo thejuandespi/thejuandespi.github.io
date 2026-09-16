@@ -269,15 +269,6 @@
     font-family: var(--font-mono); text-transform: uppercase;
     font-variant-ligatures: contextual;
   }
-
-  /* ---------- form ---------- */
-  .field-row input, .field-row textarea {
-    background: var(--c-bg); border: 1px solid var(--c-line);
-    padding: 0.7rem 0.8rem; width: 100%; font-size: 0.95rem;
-    transition: border-color 0.16s ease;
-  }
-  .field-row input:focus, .field-row textarea:focus { border-color: var(--c-alpine2); }
-  .field-row textarea { resize: vertical; min-height: 120px; }
 }
 
 /* ============================================================

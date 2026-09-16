@@ -11,6 +11,7 @@ export const ME = {
   phone: "+63 905 351 1640",
   linkedin: "https://www.linkedin.com/in/johndespi",
   github: "https://github.com/thejuandespi",
+  trailhead: "https://www.salesforce.com/trailblazer/thejuandespi",
   cv: "/John-Despi-CV.pdf"
 };
 
