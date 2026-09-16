@@ -586,14 +586,20 @@ html { scrollbar-color: var(--c-alpine) var(--c-bg); scrollbar-width: thin; }
 ::-webkit-scrollbar-thumb:hover { background: var(--c-signal); }
 
 /* ============================================================
-   CURSOR — reticle dot + trailing ring, desktop pointer only
-   (Cursor.jsx gates this on pointer:fine + no reduced motion).
+   CURSOR — reticle dot + trailing ring, desktop pointer only.
+   Cursor.jsx only adds .custom-cursor once it's seen a genuine
+   pointerType:"mouse" event, so these stay invisible (not just
+   unpositioned) on touch devices until that's proven — iPadOS
+   reports pointer:fine for plain touch, which used to leave a
+   stray dot parked whereever the first synthetic tap-mouse event
+   landed.
    ============================================================ */
 html.custom-cursor, html.custom-cursor * { cursor: none !important; }
 .cursor-dot, .cursor-ring {
   position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
-  border-radius: 50%; will-change: transform;
+  will-change: transform; opacity: 0;
 }
+html.custom-cursor .cursor-dot, html.custom-cursor .cursor-ring { opacity: 1; }
 .cursor-dot { width: 6px; height: 6px; background: var(--c-signal); }
 .cursor-ring {
   width: 30px; height: 30px; border: 1px solid var(--c-line2);

@@ -21,7 +21,7 @@ export default function Contact() {
           note="Senior Salesforce roles, contract builds, or a platform problem you're stuck on. Email is fastest — I reply within a day."
         />
 
-        <div className="max-w-xl">
+        <div className="max-w-xl mx-auto">
           <div className="grid gap-px bg-line border border-line">
             {LINKS.map((l) => (
               <a
