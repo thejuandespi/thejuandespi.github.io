@@ -35,7 +35,7 @@ export default function Rail() {
       <span className="dot w-1.5 h-1.5 bg-signal" />
       <span className="vt lig tabular-nums">{time || "--:--:--"}</span>
       <span className="w-px h-[70px] bg-line2" />
-      <span className="vt lig">portfolio :: v2 // 2026</span>
+      <span className="vt lig">portfolio :: v2 // {new Date().getFullYear()}</span>
     </div>
   );
 }

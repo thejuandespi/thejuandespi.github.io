@@ -177,6 +177,11 @@
   }
   .lig { text-transform: none; letter-spacing: 0.06em; }
 
+  .footer-copy {
+    font-family: "Maratype", var(--font-display);
+    font-size: 0.85rem;
+  }
+
   .skip {
     position: absolute; left: 0.75rem; top: -4rem; z-index: 200;
     background: var(--c-signal); color: #0a1109;
@@ -562,9 +567,7 @@
   background-size: 9px 9px;
 }
 .barcode {
-  display: block; height: 20px; width: 148px; opacity: 0.32;
-  background-image: repeating-linear-gradient(90deg, var(--c-ink) 0 2px, transparent 2px 5px,
-    var(--c-ink) 5px 7px, transparent 7px 10px, var(--c-ink) 10px 11px, transparent 11px 16px);
+  display: block; height: 20px; opacity: 0.32; color: var(--c-ink);
 }
 
 /* ============================================================
