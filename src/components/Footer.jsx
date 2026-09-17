@@ -15,7 +15,7 @@ export default function Footer() {
       <footer className="relative z-[2] border-t border-line bg-bg2 pt-6 pb-10">
         <div className="wrap flex flex-wrap gap-4 justify-between items-center text-muted">
           <span>
-            <Barcode value="John Despi" className="barcode" />
+            <Barcode value="06161997" className="barcode" />
             <span className="mono footer-copy block mt-2">© {new Date().getFullYear()} John Despi — Cebu, Philippines</span>
           </span>
           <span className="mono flex gap-5">
