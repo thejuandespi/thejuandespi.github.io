@@ -45,8 +45,8 @@ export default function Nav({ active, theme, onTheme, onOpenPalette }) {
         <div className="wrap h-[var(--nav-h)] flex items-center gap-6">
           <a href="#home" onClick={(e) => go(e, "home")} className="flex items-center gap-2.5 mr-auto no-underline">
             <span className="brand-mark" aria-hidden="true">JD</span>
-            <span className="text-[1.02rem] font-bold" style={{ fontStretch: "84%" }}>
-              Despi <span className="text-muted font-medium">/ Salesforce</span>
+            <span className="text-[1.02rem] font-bold" style={{ fontFamily: "var(--font-mono)" }}>
+              despi <span className="text-muted font-medium">/{active}</span>
             </span>
           </a>
 
