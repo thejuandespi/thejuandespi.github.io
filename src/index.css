@@ -269,6 +269,24 @@
     font-family: var(--font-mono); text-transform: uppercase;
     font-variant-ligatures: contextual;
   }
+
+  /* ---------- form ---------- */
+  .field-row { display: grid; gap: 0.5rem; margin-bottom: 1.1rem; }
+  .field-row label {
+    font-family: var(--font-mono); font-size: 0.688rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--c-muted);
+  }
+  .field-row input, .field-row textarea {
+    background: var(--c-bg); border: 1px solid var(--c-line); color: var(--c-ink);
+    padding: 0.75rem 0.85rem; width: 100%; font-family: var(--font-display); font-size: 0.95rem;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease;
+  }
+  .field-row input::placeholder, .field-row textarea::placeholder { color: var(--c-muted); opacity: 0.65; }
+  .field-row input:focus, .field-row textarea:focus {
+    outline: none; border-color: var(--c-signal);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--c-signal) 18%, transparent);
+  }
+  .field-row textarea { resize: vertical; min-height: 128px; }
 }
 
 /* ============================================================
